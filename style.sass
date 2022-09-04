@@ -61,6 +61,10 @@ img
     section
         position: relative
 section#intro
+    height: calc(100vh - 60px)
+    min-height: 600px
+    display: flex
+    flex-direction: column
     header
         h1
             color: var(--clr-primary2)
@@ -69,7 +73,7 @@ section#intro
     .face
         pointer-events: none
         position: relative
-        margin: auto
+        margin: auto auto 0
         width: 300px
         .blobs
             width: 100%

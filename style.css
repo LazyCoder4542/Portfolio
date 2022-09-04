@@ -79,6 +79,12 @@ img {
   position: relative;
 }
 
+section#intro {
+  height: calc(100vh - 60px);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
 section#intro header h1 {
   color: var(--clr-primary2);
   font-size: 3.5rem;
@@ -87,7 +93,7 @@ section#intro header h1 {
 section#intro .face {
   pointer-events: none;
   position: relative;
-  margin: auto;
+  margin: auto auto 0;
   width: 300px;
 }
 section#intro .face .blobs {
