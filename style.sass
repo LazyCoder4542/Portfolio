@@ -1,0 +1,141 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+:root
+    --clr-dark1: #221E1B
+    --clr-neutral1: #FFFFFF
+    --clr-neutral2: #F5EFEB
+    --clr-primary1: #EA765D
+    --clr-primary2: #7A8FCD
+    --clr-primary3: #DDB85C
+body
+    font-family: arial
+    min-height: 100vh
+    overflow-x: hidden
+    background-color: var(--clr-dark1)
+    color: var(--clr-neutral2)
+img
+    max-width: 100%
+    max-height: 100%
+#site-header
+    column-gap: 1rem
+    width: 100%
+    display: inline-flex
+    align-items: center
+    justify-content: space-between
+    height: 60px
+    padding: 1rem
+    .icon
+        height: 100%
+        margin-right: auto
+        img
+            object-fit: contain
+            object-position: left center
+    .button
+        padding: .25rem 1rem
+        background-color: var(--clr-primary1)
+        color: var(--clr-neutral2)
+        border-radius: 5px
+    .menu
+        .hamburger
+            box-sizing: content-box
+            position: relative
+            width: 2rem
+            height: 1.5rem
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: flex-end
+            span
+                border-radius: 5px
+                width: 100%
+                height: 4px
+                background-color: var(--clr-neutral2)
+                &:nth-child(2)
+                    width: 80%
+        .menu-box
+            display: none
+.container
+    width: 100%
+    section
+        position: relative
+section#intro
+    header
+        h1
+            color: var(--clr-primary2)
+            font-size: 3.5rem
+            text-transform: uppercase
+    .face
+        pointer-events: none
+        position: relative
+        margin: auto
+        width: 300px
+        .blobs
+            width: 100%
+            height: 100%
+            position: absolute
+            z-index: -1
+            img
+                display: block
+                margin: auto
+                object-fit: contain
+                object-position: center
+        .image
+            width: 100%
+            img
+                vertical-align: bottom
+    .wrapper
+        position: relative
+        width: 100%
+        padding: .5rem 1rem
+        background-color: var(--clr-neutral2)
+        overflow: hidden
+        &::after
+            position: absolute
+            display: block
+            content: ""
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            //background-color: rgba(0, 0, 0, 0.5)
+            box-shadow: inset 16px 0px 10px #b1aba8, inset -16px 0px 10px #b1aba8
+        .icons-slider
+            z-index: 0
+            //overflow-x: hidden
+            text-overflow: ellipsis
+            position: relative
+            .icons
+                display: inline-flex
+                animation: linear infinite
+                .icon
+                    margin-right: 1rem
+                    display: flex
+                    column-gap: .5rem
+                    align-items: center
+                    span:nth-child(1)
+                        display: flex
+                        svg
+                            width: 2rem
+                            height: 2rem
+                            object-fit: contain
+                    span:nth-child(2)
+                        font-size: .8rem
+                        color: var(--clr-dark1)
+                        width: max-content
+                &.copy
+                    visibility: hidden
+                    transform: translateX(calc(100vw - 2rem))
+                    position: absolute
+                    top: 0
+        &:hover
+            .icons
+                animation-play-state: paused
+                
+@keyframes slide
+    0%
+        visibility: visible
+        transform: translateX(calc(100vw - 2rem))
+    100%
+        transform: translateX(calc(-200% + (100vw - 2rem)))
