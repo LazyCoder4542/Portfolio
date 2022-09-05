@@ -44,6 +44,7 @@ img {
 
 a {
   all: unset;
+  cursor: pointer;
 }
 
 button {
@@ -424,8 +425,7 @@ section#projects #see-more {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  border: 2px var(--clr-dark1);
-  border-style: dashed dotted;
+  border: 2px dashed var(--clr-dark1);
   border-radius: 5px;
   backdrop-filter: blur(3px);
 }
