@@ -9,35 +9,64 @@
     --clr-primary1: #EA765D
     --clr-primary2: #7A8FCD
     --clr-primary3: #DDB85C
+    --page-padding: 1rem
+html
+    filter: saturate(120%)
 body
     font-family: arial
     min-height: 100vh
     overflow-x: hidden
     background-color: var(--clr-dark1)
     color: var(--clr-neutral2)
+    max-width: 100vw
+    font-size: 1rem
+    scroll-behavior: smooth
+
+.logo
+    height: 100%
+    img
+        object-fit: contain
+        object-position: left center
 img
     max-width: 100%
     max-height: 100%
+a
+    all: unset
+button
+    color: inherit
+    font-family: inherit
+button, .btn
+    border: none
+    outline: none
+.btn-main, .btn-sec
+    cursor: pointer
+    padding: .25rem 1rem
+    border-radius: 5px
+.btn-main
+    background-color: var(--clr-primary1)
+    color: var(--clr-neutral2)
+    transition: background-color 500ms
+    &:hover
+        background-color: #ea775daa
+.btn-sec
+    padding: .25rem 1rem
+    background-color: var(--clr-primary3)
+    color: var(--clr-dark1)
 #site-header
+    --padding: var(--page-padding)
+    //position: fixed
     column-gap: 1rem
     width: 100%
     display: inline-flex
     align-items: center
     justify-content: space-between
     height: 60px
-    padding: 1rem
-    .icon
-        height: 100%
+    padding: var(--padding)
+    .logo
         margin-right: auto
-        img
-            object-fit: contain
-            object-position: left center
-    .button
-        padding: .25rem 1rem
-        background-color: var(--clr-primary1)
-        color: var(--clr-neutral2)
-        border-radius: 5px
     .menu
+        z-index: 2
+        position: relative
         .hamburger
             box-sizing: content-box
             position: relative
@@ -48,18 +77,71 @@ img
             justify-content: space-between
             align-items: flex-end
             span
-                border-radius: 5px
+                transition: all 500ms
+                border-radius: 10px
                 width: 100%
                 height: 4px
                 background-color: var(--clr-neutral2)
+                transform-origin: center
                 &:nth-child(2)
                     width: 80%
         .menu-box
-            display: none
+            transition: opacity 500ms
+            opacity: 0
+            visibility: hidden
+            color: var(--clr-dark1)
+            background-color: var(--clr-neutral2)
+            position: absolute
+            right: 0
+            top: 0
+            width: 50vw
+            max-width: 300px
+            z-index: -1
+            transform: translate(var(--padding), calc(-1 * var(--padding)))
+            padding: 4rem 1rem 2rem
+            ul
+                li
+                    border-bottom: 1px solid var(--clr-primary1)
+                    padding: .5rem 1rem
+                    list-style: none
+            button
+                margin-top: 2rem
+                width: 100%
+                padding: .75rem
+        &.open
+            .hamburger
+                justify-content: center
+                span
+                    position: absolute
+                    background-color: var(--clr-dark1)
+                    &:nth-child(1)
+                        transform: rotate(45deg)
+                    &:nth-child(2)
+                        opacity: 0
+                        transform: translateX(-200%)
+                    &:nth-child(3)
+                        transform: rotate(-45deg)
+            .menu-box
+                visibility: visible
+                opacity: 1
+                ul
+                    li
+                        transition: all 500ms
+                        &:hover
+                            background-color: #ea775daa
+                            color: var(--clr-neutral2)
+                            border-bottom-color: transparent
 .container
     width: 100%
+    display: grid
+    grid-template-columns: 1fr
+    row-gap: 6rem
     section
+        width: 100%
         position: relative
+        header
+            margin: var(--page-padding)
+
 section#intro
     height: calc(100vh - 60px)
     min-height: 600px
@@ -70,6 +152,14 @@ section#intro
             color: var(--clr-primary2)
             font-size: 3.5rem
             text-transform: uppercase
+            user-select: none
+            span
+                user-select: none
+                cursor: pointer
+                transition: all 400ms
+            span:hover
+                color: white //#1f2b4f
+                //text-decoration: underline
     .face
         pointer-events: none
         position: relative
@@ -91,7 +181,7 @@ section#intro
                 vertical-align: bottom
     .wrapper
         position: relative
-        width: 100%
+        width: 100vw
         padding: .5rem 1rem
         background-color: var(--clr-neutral2)
         overflow: hidden
@@ -143,3 +233,129 @@ section#intro
         transform: translateX(calc(100vw - 2rem))
     100%
         transform: translateX(calc(-200% + (100vw - 2rem)))
+
+section#projects
+    header
+        margin-bottom: 3rem
+        h2
+            font-size: 3rem
+            color: var(--clr-neutral1)
+    .projects-lists
+        display: grid
+        grid-template-columns: 1fr
+        row-gap: 5rem
+        font-size: 1.2rem
+        .project
+            .info
+                padding: 2rem 1rem
+                .name
+                    font-size: 2rem
+                    color: var(--clr-neutral2)
+                .description
+                    margin: 1rem
+                    color: var(--clr-primary1)
+            .button
+                align-items: center
+                margin: 1rem
+                width: auto
+                display: flex
+                justify-content: space-between
+                column-gap: 1rem
+                button
+                    padding: .75rem 1.5rem
+                    border-radius: 20px
+                    display: inline-flex
+                    align-items: center
+                    column-gap: 1rem
+                    span:nth-child(1)
+                        svg
+                            width: 48px
+                            height: 48px
+                    span:nth-child(2)
+                        font-size: 1.4rem
+    #see-more
+        width: 100%
+        padding: .5px 0
+        background-color: var(--clr-neutral2)
+        color: var(--clr-dark1)
+        text-align: center
+    
+#site-footer
+    margin-top: 16rem
+    color: var(--clr-dark1)
+    background-color: var(--clr-neutral2)
+    font-size: 0.8rem
+    padding-bottom: 4rem
+    section#about
+        transform: translateY(-50%)
+        background-color: var(--clr-primary2)
+        width: auto
+        margin: 1rem
+        display: grid
+        column-gap: 1rem
+        padding: 1.5rem
+        border-radius: 30px 0px 30px 0px
+        box-shadow: 2px 2px 20px var(--clr-dark1)
+        .profile
+            outline: .5rem solid var(--clr-primary3)
+            //outline-offset: 1rem
+            grid-area: 1/1/3/2
+            width: 64px
+            height: 64px
+            border-radius: 50%
+            overflow: hidden
+            display: flex
+            justify-content: center
+            img
+                flex-shrink: 0
+                transform: rotateY(180deg) translateX(5px)
+                filter: grayscale(90%)
+                width: 150%
+                height: 150%
+                max-height: none
+                max-width: none
+                object-fit: cover
+                object-position: center 100%
+        .name, .info
+            margin: auto 0
+        .name
+            font-size: 1.2rem
+            grid-area: 1/2/2/3
+            text-transform: uppercase
+    section#contact
+        padding: var(--page-padding)
+        header
+            .logo
+                height: 2rem
+        .wrapper
+            margin: 1rem 0
+            display: grid
+            grid-template-columns: 1fr 1fr
+            gap: 1rem
+            .div-1
+                display: flex
+                flex-direction: column
+                gap: 1rem
+                div
+                    display: inline-flex
+                    gap: 5px
+                    svg
+                        height: 100%
+                        path
+                            fill: var(--clr-dark1)
+            .div-2
+                position: fixed
+                bottom: 1rem
+                right: 1rem
+                border: 2px var(--clr-dark1)
+                border-style: dashed dotted
+                border-radius: 5px
+                backdrop-filter: blur(3px)
+                .social-icons
+                    display: flex
+                    justify-content: space-evenly
+                    span
+                        padding: .5rem
+                        display: block
+                        svg
+                            width: 32px

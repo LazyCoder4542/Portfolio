@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    /* Navbar */
+    $('.menu').click(function () {
+        $(this).toggleClass('open')
+    })
     /* ICONS SLIDE */
     var time = 25000
     $('.icons-slider .icons').css('animationDuration', `${time}ms`);
