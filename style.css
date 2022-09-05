@@ -412,7 +412,7 @@ section#projects #see-more {
 }
 #site-footer section#contact .wrapper .div-1 div {
   display: inline-flex;
-  gap: 5px;
+  gap: 20px;
 }
 #site-footer section#contact .wrapper .div-1 div svg {
   height: 100%;
