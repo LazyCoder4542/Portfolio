@@ -1,0 +1,23 @@
+.pointer
+    position: fixed
+    width: 100px
+    height: 100px
+    border-radius: 50%
+    translate: -50% -50%
+    z-index: 200
+    pointer-events: none
+    left: 0
+    top: 0
+    scale: 1
+    rotate: 0deg
+    img
+        width: 100%
+        animation: spin 10000ms linear infinite
+        height: 100%
+        object-fit: cover
+
+@keyframes spin
+    0%
+        rotate: 0deg
+    100%
+        rotate: 360deg

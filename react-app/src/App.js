@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import LocomotiveScroll from "locomotive-scroll";
+
 import './App.css';
 
+import Pointer from './components/pointer';
 function App() {
+  useEffect(() => {
+    console.log('hello');
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector(".App"),
+      smooth: true,
+      tablet: {
+        smooth: true
+      },
+      smartphone: {
+        smooth: true
+      },
+   });
+    console.log(scroll);
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Pointer />
+      <div className="App" data-scroll-container>
+        <section data-scroll-section>
+          <div className='text' data-scroll data-scroll-delay="20000">Hello</div>
+        </section><section data-scroll-section>
+          <div className='text' data-scroll>Hello</div>
+        </section><section data-scroll-section>
+          <div className='text' data-scroll>Hello</div>
+        </section><section data-scroll-section>
+          <div className='text' data-scroll>Hello</div>
+        </section><section data-scroll-section>
+          <div className='text' data-scroll>Hello</div>
+        </section><section data-scroll-section>
+          <div className='text' data-scroll>Hello</div>
+        </section>
+      </div>
+    </React.Fragment>
   );
 }
 
