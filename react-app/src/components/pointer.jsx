@@ -31,9 +31,12 @@ class Pointer extends Component {
     };
     m.x = e.clientX;
     m.y = e.clientY;
-    this.state.position.x = m.x ? m.x : 0;
-    this.state.position.y = m.y ? m.y : 0;
-    this.setState(this.state.position);
+    this.setState({
+      position: {
+        x: m.x ? m.x : 0,
+        y: m.y ? m.y : 0,
+      }
+    })
     //this.pointer.current.style.transform = `translate(${this.state.position.x}px, ${this.state.position.y}px)`
   };
   render() {
