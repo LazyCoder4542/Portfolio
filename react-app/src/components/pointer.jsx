@@ -45,10 +45,14 @@ class Pointer extends Component {
         <motion.div
         className={styles.pointer}
         ref={this.pointer}
+        initial={{
+          opacity: 0,
+        }}
         variants={{
           default: {
             x: this.state.position.x,
-            y: this.state.position.y
+            y: this.state.position.y,
+            opacity: 1
           }
         }}
         animate="default"

@@ -1,11 +1,26 @@
+@use './_custom.sass' as custom
 *
     margin: 0
     padding: 0
     box-sizing: border-box
+    &::selection
+        color: revert
+        background-color: #222222aa
+:root
+    --page-padding: 0px 100px
+    font-size: 50%
 body
     overflow-x: hidden
-    background-color: #333
+    background-color: custom.$clr-primary
     min-height: 200vh
+    font-family: custom.$ff-body, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    color: custom.$clr-white
+    font-size: 1.5rem
+h1
+    font-weight: 700
+    font-size: 3.5rem
+p
+    color: custom.$clr-light
 .App
     min-height: 100vh
     section
@@ -13,22 +28,34 @@ body
         display: flex
         justify-content: center
         align-items: center
-        &:nth-child(1)
-            background: red
-        &:nth-child(2)
-            background: yellow
-        &:nth-child(3)
-            background: orange
-        &:nth-child(4)
-            background: green
-        &:nth-child(5)
-            background: blue
-        &:nth-child(6)
-            background: indigo
-        &:nth-child(7)
-            background: violet
-        &:nth-child(8)
-            background: white
-        &:nth-child(9)
-            background: black
-            color: white
+    .container
+        overflow: hidden
+    #site-header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .icon
+            height: 2.25rem
+            svg
+                height: 100%
+                width: auto
+
+        .wrapper
+            .hamburger
+                width: 4rem
+                height: 2.5rem
+                display: inline-flex
+                flex-direction: column
+                justify-content: space-between
+                span
+                    display: block
+                    height: 3px
+                    font-weight: bold
+                    border-radius: 999px
+                    background-color: #D9D9D9
+                    &:nth-child(2)
+                        width: 80%
+    section#intro
+        h1
+            span
+                color: custom.$clr-primary2
