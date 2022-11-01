@@ -1,6 +1,39 @@
 $ff-body: 'Poppins'
-$ff-decor: 'Lora', 'Courier New', Courier, monospace
+$ff-decor: 'Lora'
+$ff-button: 'Tw Cen MT Condensed Font' 
 $clr-primary: #10101A
 $clr-primary2: #EC368D
 $clr-white: #FFFFFF
 $clr-light: #F5F5F5
+$clr-neutral: #1D1E29
+@mixin button()
+    display: inline-flex
+    align-items: center
+    cursor: pointer
+@mixin primaryButton()
+    padding: 0.75rem 2rem
+    border: 1px solid #ECF0F1
+    border-radius: 0.125rem
+    transition-property: background-color transform
+    transition-duration: 500ms
+    &:hover
+        transform: translateY(-.5rem)
+        background-color: $clr-neutral
+@mixin secondaryButton()
+    flex-direction: column
+    position: relative
+    &::after
+        position: absolute
+        background-color: #ECF0F1
+        display: block
+        transform: translate(-50%, .25rem)
+        content: ""
+        left: 50%
+        top: 100%
+        width: 40%
+        height: .25rem
+        border-radius: 999px
+        transition: width 500ms
+    &:hover::after
+        width: 100%
+        
