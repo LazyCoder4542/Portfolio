@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import LocomotiveScroll from "locomotive-scroll";
-//import {motion} from "framer-motion";
+import {motion} from "framer-motion";
 
 import { ReactComponent as Logo} from "./assets/icons/logo.svg"
 import { ReactComponent as WaveSVG} from "./assets/icons/waves.svg"
@@ -48,7 +48,20 @@ function App() {
         <div className="container" data-scroll-container>
           <section id='intro' data-scroll-section>
             <h1 className="tagline">
-              Building products with great aesthetics and <span>seamless</span> <span>experience</span>
+              Building products with great aesthetics and 
+              <motion.span
+              initial={{
+                filter: 'hue-rotate(90deg)'
+              }}
+              animate={{
+                filter: 'hue-rotate(0deg)'
+              }}
+              transition={{
+                duration: 5,
+                type: "tween"
+              }}
+              data-content = " seamless experience"
+              > seamless experience</motion.span>
             </h1>
             <div className="buttons">
               <div className="btn btn-primary">Download Resume</div>
@@ -69,6 +82,14 @@ function App() {
               <div className="project">
                 <div className="image">
                   <img src="images/space-tourism.png" alt="Space Tourism" />
+                  <div className="overlay">
+                    <span>Space Tourism</span>
+                    <span>
+                      <p>HTML</p>
+                      <p>CSS</p>
+                      <p>REACT</p>
+                    </span>
+                  </div>
                 </div>
                 <div className="caption">
                   <div className="desc">
@@ -84,6 +105,14 @@ function App() {
               <div className="project">
                 <div className="image">
                   <img src="images/trybrass.png" alt="TryBrass" />
+                  <div className="overlay">
+                    <span>TryBrass</span>
+                    <span>
+                      <p>HTML</p>
+                      <p>CSS</p>
+                      <p>REACT</p>
+                    </span>
+                  </div>
                 </div>
                 <div className="caption">
                   <div className="desc">
@@ -99,6 +128,16 @@ function App() {
               <div className="project">
                 <div className="image">
                   <img src="images/helicarrier.png" alt="Helicarrier" />
+                  <div className="overlay">
+                    <span>Helicarrier</span>
+                    <span>
+                      <p>HTML</p>
+                      <p>CSS</p>
+                      <p>REACT</p>
+                      <p>AOS</p>
+                      <p>CANVA ANIMATION</p>
+                    </span>
+                  </div>
                 </div>
                 <div className="caption">
                   <div className="desc">
