@@ -24,7 +24,6 @@ import './App.css';
 import Pointer from './components/pointer';
 function App() {
   useEffect(() => {
-    console.log('hello');
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
@@ -34,10 +33,10 @@ function App() {
       smartphone: {
         smooth: true,
       },*/
+      reloadOnContextChange: true,
       multiplier: 0.8
    });
-
-    console.log(scroll);
+   console.log(scroll);
   }, [])
   return (
     <React.Fragment>
@@ -81,7 +80,7 @@ function App() {
             </div>
             <div className="wave"><WaveSVG /></div>
           </section>
-          <section id='projects' data-scroll-section>
+          <section id='projects' data-scroll-section data-scroll-delay="2">
             <header>
               <h2>
                 <span>Projects</span>
@@ -105,7 +104,7 @@ function App() {
                 </div>
                 <div className="caption">
                   <div className="desc">
-                      <h3 class="title">Space Tourism</h3>
+                      <h3 className="title">Space Tourism</h3>
                       <p>Case study of documentary website that provides information on outer space.</p>
                   </div>
                   <div className="buttons">
@@ -128,7 +127,7 @@ function App() {
                 </div>
                 <div className="caption">
                   <div className="desc">
-                      <h3 class="title">TryBrass</h3>
+                      <h3 className="title">TryBrass</h3>
                       <p>A copy of a network that provides banking services with the aim of aiding growing businesses.</p>
                   </div>
                   <div className="buttons">
@@ -153,7 +152,7 @@ function App() {
                 </div>
                 <div className="caption">
                   <div className="desc">
-                      <h3 class="title">Helicarrier</h3>
+                      <h3 className="title">Helicarrier</h3>
                       <p>A copy of a network that provides crptocurrency infrastructures for africans.</p>
                   </div>
                   <div className="buttons">
@@ -236,17 +235,6 @@ function App() {
             <div className="wrapper">
               <p>If you’ll like to know  more about my work, rub minds together on a project or collaborate with you on a project , feel free to shoot me an email-fadareadeola@gmail.com</p>
             </div>
-          </section>
-          <section data-scroll-section>
-            <div className='text' data-scroll>Hello</div>
-            <h2 data-scroll data-scroll-speed="1">What's up?</h2>
-            <p data-scroll data-scroll-speed="2">😬</p>
-          </section>
-          <section data-scroll-section>
-            <div className='text' data-scroll>Hello</div>
-          </section>
-          <section data-scroll-section>
-            <div className='text' data-scroll>Hello</div>
           </section>
         </div>
       </div>

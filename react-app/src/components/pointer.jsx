@@ -16,7 +16,6 @@ class Pointer extends Component {
 	  });
     window.addEventListener("scroll",(e) => {
       this.setState((prevState) => {
-        console.log(prevState);
         return ({
           pointer: {x: 0, y: 0} //(prevState.pointer, {y: window.scrollY}) 
         })
