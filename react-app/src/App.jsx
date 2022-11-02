@@ -16,12 +16,12 @@ function App() {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
-      tablet: {
+      /*tablet: {
         smooth: true,
       },
       smartphone: {
         smooth: true,
-      },
+      },*/
       multiplier: 0.8
    });
 
