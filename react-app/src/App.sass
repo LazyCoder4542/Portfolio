@@ -39,6 +39,7 @@ p
         @include custom.secondaryButton()
 .App
     min-height: 100vh
+    overflow-x: hidden
     .container
         overflow: hidden
         &>section
@@ -206,6 +207,48 @@ p
                         .btn::after
                             height: .125rem
             gap: 8.25rem
+    section#skills
+        .skills-container
+            display: flex
+            gap: 1rem 2rem
+            flex-wrap: wrap
+            align-items: center
+            .break
+                width: 100%
+                display: block
+            div.skill
+                height: 4rem
+                span
+                    height: 2rem
+                    display: inline-flex
+                    --timer: 20s
+                    animation:
+                        name: grow
+                        timing-function: ease-in
+                        fill-mode: forwards
+                        duration: var(--timer)
+                        iteration-count: infinite
+                    svg
+                        height: 100%
+                        width: auto
+                @for $i from 1 through 10
+                    @if $i >= 8
+                        &:nth-child(#{$i+1})
+                            span
+                                animation-delay: calc(2s * ($i - 1))
+                    @else     
+                        &:nth-child(#{$i})
+                            span
+                                animation-delay: calc(2s * ($i - 1))
+
+
+@keyframes grow
+    0%, 10%, 100%
+        height: 2rem
+    5%
+        height: 4rem
+    
+                                
 @media screen and ( min-width: 1024px )
     :root
         font-size: 90%

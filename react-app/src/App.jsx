@@ -2,10 +2,20 @@ import React, { useEffect } from 'react';
 import LocomotiveScroll from "locomotive-scroll";
 import {motion} from "framer-motion";
 
-import { ReactComponent as Logo} from "./assets/icons/logo.svg"
-import { ReactComponent as WaveSVG} from "./assets/icons/waves.svg"
-import { ReactComponent as HatIcon} from "./assets/icons/hat.svg"
-import { ReactComponent as BagIcon} from "./assets/icons/bag.svg"
+import { ReactComponent as Logo} from "./assets/icons/logo.svg";
+import { ReactComponent as WaveSVG} from "./assets/icons/waves.svg";
+import { ReactComponent as HatIcon} from "./assets/icons/hat.svg";
+import { ReactComponent as BagIcon} from "./assets/icons/bag.svg";
+import { ReactComponent as HTMLIcon} from "./assets/icons/html.svg";
+import { ReactComponent as CSSIcon} from "./assets/icons/css.svg";
+import { ReactComponent as JSIcon} from "./assets/icons/js.svg";
+import { ReactComponent as ReactIcon} from "./assets/icons/react.svg";
+import { ReactComponent as GITIcon} from "./assets/icons/git.svg";
+import { ReactComponent as PythonIcon} from "./assets/icons/python.svg";
+import { ReactComponent as PHPIcon} from "./assets/icons/php.svg";
+import { ReactComponent as TailwindIcon} from "./assets/icons/tailwind.svg";
+import { ReactComponent as JQueryIcon} from "./assets/icons/jquery.svg";
+import { ReactComponent as BootstrapIcon} from "./assets/icons/bootstrap.svg";
 
 import './App.css';
 
@@ -163,6 +173,39 @@ function App() {
             </header>
             <div className="wrapper">
               <p>As a front -end developer, i’m always in pursuit of skills that can help develop and make me a well rounded professional</p>
+              <div className="skills-container">
+                <div className='skill'>
+                  <span><HTMLIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><CSSIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><JSIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><ReactIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><GITIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><PythonIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><PHPIcon /></span>
+                </div>
+                <div className="break"></div>
+                <div className='skill'>
+                  <span><TailwindIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><JQueryIcon /></span>
+                </div>
+                <div className='skill'>
+                  <span><BootstrapIcon /></span>
+                </div>
+              </div>
             </div>
           </section>
           <section data-scroll-section>
