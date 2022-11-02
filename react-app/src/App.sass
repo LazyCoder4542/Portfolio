@@ -1,4 +1,5 @@
 @use './_custom.sass' as custom
+$count: 10
 *
     margin: 0
     padding: 0
@@ -218,10 +219,12 @@ p
                 display: block
             div.skill
                 height: 4rem
+                display: inline-flex
+                align-items: center
                 span
                     height: 2rem
                     display: inline-flex
-                    --timer: 20s
+                    --timer: 40s
                     animation:
                         name: grow
                         timing-function: ease-in
@@ -231,15 +234,15 @@ p
                     svg
                         height: 100%
                         width: auto
-                @for $i from 1 through 10
+                @for $i from 1 through $count
                     @if $i >= 8
                         &:nth-child(#{$i+1})
                             span
-                                animation-delay: calc(2s * ($i - 1))
+                                animation-delay: calc((var(--timer)/$count) * ($i - 1))
                     @else     
                         &:nth-child(#{$i})
                             span
-                                animation-delay: calc(2s * ($i - 1))
+                                animation-delay: calc((var(--timer)/$count) * ($i - 1))
 
 
 @keyframes grow
