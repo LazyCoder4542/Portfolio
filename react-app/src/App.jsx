@@ -18,6 +18,7 @@ import { ReactComponent as PHPIcon} from "./assets/icons/php.svg";
 import { ReactComponent as TailwindIcon} from "./assets/icons/tailwind.svg";
 import { ReactComponent as JQueryIcon} from "./assets/icons/jquery.svg";
 import { ReactComponent as BootstrapIcon} from "./assets/icons/bootstrap.svg";
+import { ReactComponent as Dots} from "./assets/icons/dots.svg";
 
 import './App.css';
 
@@ -163,6 +164,9 @@ function App() {
               </div>
             </div>
           </section>
+          <div className="dots">
+            <Dots />
+          </div>
           <section id='skills' data-scroll-section>
             <header>
               <h2>

@@ -42,15 +42,25 @@ p
     min-height: 100vh
     overflow-x: hidden
     .container
-        overflow: hidden
+        //overflow: hidden
+        position: relative
+        .dots
+            position: absolute
+            width: 100vw
+            z-index: -1
+            opacity: .13
+            svg
+                width: 100%
+                height: auto
         &>section
             padding-inline: var(--page-padding-x)
             display: flex
             flex-direction: column
-            padding-bottom: 11.25rem
             //overflow-x: hidden
             &:not(section#intro)
                 row-gap: 4.875rem
+                & + section
+                    padding-top: 11.25rem
                 
             p
                 font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
@@ -70,6 +80,7 @@ p
             &#intro
                 padding-block: 5rem
     #site-header
+        background-color: inherit
         padding: 1rem 0 1rem var(--page-padding-x)
         display: flex
         justify-content: space-between
@@ -128,14 +139,21 @@ p
             gap: 3.5rem
             align-items: center
         .wave
+            overflow: hidden
+            //clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)
             position: absolute
-            width: 70vw
-            transform: translateX(50%)
+            width: 35vw
             top: 10rem
             right: 0
-            svg
+            &::after
+                content: ""
+                display: block
                 width: 100%
+                padding-bottom: 200%
+            svg
+                width: 200%
                 height: auto
+
     section#projects
         .projects
             display: flex
@@ -147,11 +165,12 @@ p
                 &:nth-child(1)>.image>.overlay
                     background-color: #D1317F99
                 &:nth-child(2)>.image>.overlay
-                    background-color: #9055A299
+                    background-color: #9055A2BB
                 &:nth-child(3)>.image>.overlay
-                    background-color: #426B6999
+                    background-color: #426B69CC
                 .image
                     overflow: clip
+                    -webkit-overflow: clip
                     flex-basis: 66.7%
                     background-color: custom.$clr-neutral
                     border: 0.381452px solid #CFCFCF
@@ -229,7 +248,6 @@ p
                     display: inline-flex
                     --timer: 40s
                     animation:
-                        name: grow
                         timing-function: ease-in
                         fill-mode: forwards
                         duration: var(--timer)
@@ -258,6 +276,13 @@ p
 @media screen and ( min-width: 1024px )
     :root
         font-size: 90%
+    .App
+        section#skills
+            .skills-container
+                div.skill
+                    span
+                        animation:
+                            name: grow
 @media screen and ( min-width: 1440px )
     :root
         --page-padding-x: 6.25rem 
