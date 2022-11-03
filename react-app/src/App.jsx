@@ -18,34 +18,31 @@ import { ReactComponent as PHPIcon} from "./assets/icons/php.svg";
 import { ReactComponent as TailwindIcon} from "./assets/icons/tailwind.svg";
 import { ReactComponent as JQueryIcon} from "./assets/icons/jquery.svg";
 import { ReactComponent as BootstrapIcon} from "./assets/icons/bootstrap.svg";
-import { ReactComponent as Dots} from "./assets/icons/dots.svg";
+import dots from "./assets/icons/dots.svg";
 
 import './App.css';
 
 import Pointer from './components/pointer';
 function App() {
+  console.log(dots);
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
-      /*tablet: {
-        smooth: true,
-      },
-      smartphone: {
-        smooth: true,
-      },*/
       reloadOnContextChange: true,
-      multiplier: 0.8
+      smartphone: {
+        smooth: true
+      }
    });
    console.log(scroll);
   }, [])
   return (
     <React.Fragment>
       <Pointer />
-      <div className="App">
-        <header id="site-header">
+      <div className="App" id='App' data-scroll-container data-scroll-section-inview>
+        <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App">
           <div className="icon">
-           <Logo />
+            <Logo />
           </div>
           <div className="wrapper">
             <div className="box">
@@ -57,8 +54,8 @@ function App() {
             </div>
           </div>
         </header>
-        <div className="container" data-scroll-container>
-          <section id='intro' data-scroll-section>
+        <div className="container">
+          <section id='intro'>
             <h1 className="tagline">
               Building products with great aesthetics and 
               <motion.span
@@ -81,7 +78,7 @@ function App() {
             </div>
             <div className="wave"><WaveSVG /></div>
           </section>
-          <section id='projects' data-scroll-section data-scroll-delay="2">
+          <section id='projects'>
             <header>
               <h2>
                 <span>Projects</span>
@@ -164,10 +161,17 @@ function App() {
               </div>
             </div>
           </section>
-          <div className="dots">
-            <Dots />
-          </div>
-          <section id='skills' data-scroll-section>
+          {/* <section
+          className="dots"
+          style={{
+            backgroundImage: `url(${dots})`
+          }}
+          data-background = {dots}
+          // data-section-sticky
+          // data-section-target="#container"
+          >
+          </section> */}
+          <section id='skills'>
             <header>
               <h2>
                 <span>Skills</span>
@@ -213,7 +217,7 @@ function App() {
               </div>
             </div>
           </section>
-          <section id='about' data-scroll-section>
+          <section id='about'>
             <header>
               <h2>
                 <span>About</span>
@@ -227,7 +231,7 @@ function App() {
               <p>I am currently based in Lagos, Nigeria.</p>
             </div>
           </section>
-          <section id='contact' data-scroll-section>
+          <section id='contact'>
             <header>
               <h2>
                 <span>Contact</span>

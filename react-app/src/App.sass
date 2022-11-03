@@ -42,25 +42,15 @@ p
     min-height: 100vh
     overflow-x: hidden
     .container
-        //overflow: hidden
-        position: relative
-        .dots
-            position: absolute
-            width: 100vw
-            z-index: -1
-            opacity: .13
-            svg
-                width: 100%
-                height: auto
+        overflow: hidden
         &>section
             padding-inline: var(--page-padding-x)
             display: flex
             flex-direction: column
-            //overflow-x: hidden
             &:not(section#intro)
                 row-gap: 4.875rem
-                & + section
-                    padding-top: 11.25rem
+                padding-top: 3rem
+                margin-bottom: 10rem
                 
             p
                 font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
@@ -80,11 +70,13 @@ p
             &#intro
                 padding-block: 5rem
     #site-header
-        background-color: inherit
+        position: relative
+        background-color: custom.$clr-primary
         padding: 1rem 0 1rem var(--page-padding-x)
         display: flex
         justify-content: space-between
         align-items: center
+        z-index: 200
         .icon
             height: 2.25rem
             svg
