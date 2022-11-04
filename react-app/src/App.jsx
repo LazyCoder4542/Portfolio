@@ -25,7 +25,8 @@ import './App.css';
 import Pointer from './components/pointer';
 function App() {
   console.log(dots);
-  useEffect(() => {
+/*useEffect(() => {
+    console.log('fired');
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]'),
       smooth: true,
@@ -33,13 +34,26 @@ function App() {
       smartphone: {
         smooth: true
       }
-   });
-   console.log(scroll);
-  }, [])
+    });
+    console.log(scroll);
+    
+  }, [])*/
   return (
     <React.Fragment>
       <Pointer />
-      <div className="App" id='App' data-scroll-container data-scroll-section-inview>
+      <div className="App" id='App' data-scroll-container data-scroll-section-inview
+      onLoad={() => {
+        console.log('sd')
+        const scroll = new LocomotiveScroll({
+          el: document.querySelector('[data-scroll-container]'),
+          smooth: true,
+          reloadOnContextChange: true,
+          smartphone: {
+            smooth: true
+          }
+        });
+      }}
+      >
         <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App">
           <div className="icon">
             <Logo />
