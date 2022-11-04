@@ -18,7 +18,7 @@ import { ReactComponent as PHPIcon} from "./assets/icons/php.svg";
 import { ReactComponent as TailwindIcon} from "./assets/icons/tailwind.svg";
 import { ReactComponent as JQueryIcon} from "./assets/icons/jquery.svg";
 import { ReactComponent as BootstrapIcon} from "./assets/icons/bootstrap.svg";
-import dots from "./assets/icons/dots.svg";
+//import dots from "./assets/icons/dots.svg";
 
 import './App.css';
 
