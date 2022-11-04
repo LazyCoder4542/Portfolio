@@ -18,6 +18,11 @@ import { ReactComponent as PHPIcon} from "./assets/icons/php.svg";
 import { ReactComponent as TailwindIcon} from "./assets/icons/tailwind.svg";
 import { ReactComponent as JQueryIcon} from "./assets/icons/jquery.svg";
 import { ReactComponent as BootstrapIcon} from "./assets/icons/bootstrap.svg";
+import { ReactComponent as WorldIcon} from "./assets/icons/world.svg";
+import { ReactComponent as GithubIcon} from "./assets/icons/github.svg";
+import { ReactComponent as TwitterIcon} from "./assets/icons/twitter.svg";
+import { ReactComponent as LinkedinIcon} from "./assets/icons/linkedin.svg";
+import { ReactComponent as InstagramIcon} from "./assets/icons/instagram.svg";
 //import dots from "./assets/icons/dots.svg";
 
 import './App.css';
@@ -103,7 +108,7 @@ function App() {
                   </div>
                   <div className="caption">
                     <div className="desc">
-                        <h3 className="title">Space Tourism</h3>
+                        <h4 className="title">Space Tourism</h4>
                         <p>Case study of documentary website that provides information on outer space.</p>
                     </div>
                     <div className="buttons">
@@ -126,7 +131,7 @@ function App() {
                   </div>
                   <div className="caption">
                     <div className="desc">
-                        <h3 className="title">TryBrass</h3>
+                        <h4 className="title">TryBrass</h4>
                         <p>A copy of a network that provides banking services with the aim of aiding growing businesses.</p>
                     </div>
                     <div className="buttons">
@@ -151,7 +156,7 @@ function App() {
                   </div>
                   <div className="caption">
                     <div className="desc">
-                        <h3 className="title">Helicarrier</h3>
+                        <h4 className="title">Helicarrier</h4>
                         <p>A copy of a network that provides crptocurrency infrastructures for africans.</p>
                     </div>
                     <div className="buttons">
@@ -242,7 +247,30 @@ function App() {
                 </h2>
               </header>
               <div className="wrapper">
-                <p>If you’ll like to know  more about my work, rub minds together on a project or collaborate with you on a project , feel free to shoot me an email-fadareadeola@gmail.com</p>
+                <p>If you’ll like to know  more about my work, rub minds together on a project or collaborate with you on a project, feel free to shoot me an email &mdash; <span>adeolafadare8@gmail.com</span></p>
+                <div className="socials">
+                  <h4>You can also connect with me on socials
+                    <span><WorldIcon /></span>
+                  </h4>
+                  <div>
+                    <span>
+                      <span>GITHUB</span>
+                      <span><GithubIcon /></span>
+                    </span>
+                    <span>
+                      <span>TWITTER</span>
+                      <span><TwitterIcon /></span>
+                    </span>
+                    <span>
+                      <span>LINKEDIN</span>
+                      <span><LinkedinIcon /></span>
+                    </span>
+                    <span>
+                      <span>INSTAGRAM</span>
+                      <span><InstagramIcon /></span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </section>
           </div>

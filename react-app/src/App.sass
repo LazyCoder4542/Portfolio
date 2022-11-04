@@ -27,6 +27,8 @@ h1
 h2
     font-size: 2.5rem
 h3
+    font-size: 2rem
+h4
     font-size: 1.5rem
 p
     color: custom.$clr-light
@@ -39,6 +41,7 @@ p
     &.btn-secondary
         @include custom.secondaryButton()
 .App
+    cursor: none
     min-height: 100vh
     overflow-x: hidden
     .container
@@ -256,6 +259,33 @@ p
                         &:nth-child(#{$i})
                             span
                                 animation-delay: calc((var(--timer)/$count) * ($i - 1))
+    section#contact
+        p>span
+            font-weight: 600
+            letter-spacing: 2px
+        .wrapper
+            display: flex
+            gap: 3.75rem
+            flex-direction: column
+            .socials
+                display: flex
+                flex-direction: column
+                gap: 2.5rem 
+                h4
+                    gap: 1rem
+                    &, span
+                        display: flex
+                        align-items: center
+                div
+                    gap: 1.5rem
+                    display: inline-flex
+                    &>span
+                        gap: .5rem
+                        &, &>span:nth-child(2)
+                            display: inline-flex
+                            align-items: center
+                        &>span:nth-child(1)
+                            font-family: custom.$ff-button
 
 
 @keyframes grow
