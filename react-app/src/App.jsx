@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {  } from 'react';
 import LocomotiveScroll from "locomotive-scroll";
 import {motion} from "framer-motion";
 
@@ -52,6 +52,7 @@ function App() {
             smooth: true
           }
         });
+        console.log(scroll);
       }}
       >
         <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App">
