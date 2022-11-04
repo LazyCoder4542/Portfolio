@@ -41,11 +41,14 @@ p
     &.btn-secondary
         @include custom.secondaryButton()
 .App
-    cursor: none
     min-height: 100vh
     overflow-x: hidden
+    padding-bottom: 10rem
     .container
+        position: relative
         overflow: hidden
+        padding-bottom: 8rem
+        border-bottom: 1px solid custom.$clr-neutral
         &>section
             padding-inline: var(--page-padding-x)
             display: flex
@@ -72,9 +75,24 @@ p
                             height: 100%
             &#intro
                 padding-block: 5rem
+        .dots
+            position: absolute
+            background-size: 100% auto
+            width: 100%
+            top: 5px
+            top: initial
+            height: 100%
+            margin: 0 !important
+            padding: 0 !important
+            z-index: -1
+            opacity: 0.2
     #site-header
+        border-bottom: 2px solid custom.$clr-neutral
+        border-radius: 0 0 .5rem .5rem
         position: relative
-        background-color: custom.$clr-primary
+        backdrop-filter: blur(10px)
+        //background-image: linear-gradient(to bottom, #{custom.$clr-primary}BB 95%, transparent)
+        background-color: #{custom.$clr-primary}88
         padding: 1rem 0 1rem var(--page-padding-x)
         display: flex
         justify-content: space-between
@@ -260,6 +278,7 @@ p
                             span
                                 animation-delay: calc((var(--timer)/$count) * ($i - 1))
     section#contact
+        margin-bottom: 0 !important
         p>span
             font-weight: 600
             letter-spacing: 2px
@@ -299,6 +318,7 @@ p
     :root
         font-size: 90%
     .App
+        cursor: none
         section#skills
             .skills-container
                 div.skill

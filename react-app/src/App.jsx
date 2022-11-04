@@ -23,7 +23,7 @@ import { ReactComponent as GithubIcon} from "./assets/icons/github.svg";
 import { ReactComponent as TwitterIcon} from "./assets/icons/twitter.svg";
 import { ReactComponent as LinkedinIcon} from "./assets/icons/linkedin.svg";
 import { ReactComponent as InstagramIcon} from "./assets/icons/instagram.svg";
-//import dots from "./assets/icons/dots.svg";
+import dots from "./assets/icons/dots.svg";
 
 import './App.css';
 
@@ -60,7 +60,7 @@ function App() {
               </div>
             </div>
           </header>
-          <div className="container">
+          <div className="container" id='container'>
             <section id='intro'>
               <h1 className="tagline">
                 Building products with great aesthetics and
@@ -167,16 +167,13 @@ function App() {
                 </div>
               </div>
             </section>
-            {/* <section
+            <section
             className="dots"
             style={{
               backgroundImage: `url(${dots})`
             }}
-            data-background = {dots}
-            // data-section-sticky
-            // data-section-target="#container"
             >
-            </section> */}
+            </section>
             <section id='skills'>
               <header>
                 <h2>
