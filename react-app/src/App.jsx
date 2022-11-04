@@ -1,4 +1,4 @@
-import React, {  } from 'react';
+import React, { useEffect, useState } from 'react';
 import LocomotiveScroll from "locomotive-scroll";
 import {motion} from "framer-motion";
 
@@ -24,37 +24,25 @@ import './App.css';
 
 import Pointer from './components/pointer';
 function App() {
-  console.log(dots);
-/*useEffect(() => {
-    console.log('fired');
+  //const [isLoaded, setIsLoaded] = useState(false)
+  const scrollRef = React.createRef();
+  useEffect(() => {
     const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
+      el: scrollRef.current,
+      //el: document.querySelector('[data-scroll-container]'),
       smooth: true,
       reloadOnContextChange: true,
       smartphone: {
         smooth: true
-      }
+      },
+      repeat: "true"
     });
     console.log(scroll);
-    
-  }, [])*/
+  }, [])
   return (
     <React.Fragment>
       <Pointer />
-      <div className="App" id='App' data-scroll-container data-scroll-section-inview
-      onLoad={() => {
-        console.log('sd')
-        const scroll = new LocomotiveScroll({
-          el: document.querySelector('[data-scroll-container]'),
-          smooth: true,
-          reloadOnContextChange: true,
-          smartphone: {
-            smooth: true
-          }
-        });
-        console.log(scroll);
-      }}
-      >
+      <div className="App" id='App' data-scroll-container data-scroll-section-inview ref={scrollRef}>
         <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App">
           <div className="icon">
             <Logo />
