@@ -90,10 +90,10 @@ function App() {
                 > seamless experience</motion.span>
               </h1>
               <div className="buttons">
-                <a href="assets/Resume.pdf" target={'_blank'}>
+                <a href="assets/Resume.pdf" target={'_blank'} rel={"noreferrer"}>
                   <div className="btn btn-primary">View Resume</div>
                 </a>
-                <a href="https://www.github.com/LazyCoder4542?tab=repositories" target={'_blank'}>
+                <a href="https://www.github.com/LazyCoder4542?tab=repositories" target={'_blank'} rel={"noreferrer"}>
                   <div className="btn btn-secondary">View Projects</div>
                 </a>
               </div>
@@ -127,10 +127,10 @@ function App() {
                         <p>Case study of documentary website that provides information on outer space.</p>
                     </div>
                     <div className="buttons">
-                      <a href="https://space-tourism-by-lazycoder.netlify.app/" target={'_blank'}>
+                      <a href="https://space-tourism-by-lazycoder.netlify.app/" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-primary">View Case study</div>
                       </a>
-                      <a href="https://github.com/LazyCoder4542/Space-tourism" target={'_blank'}>
+                      <a href="https://github.com/LazyCoder4542/Space-tourism" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-secondary">View Source case</div>
                       </a>
                     </div>
@@ -154,10 +154,10 @@ function App() {
                         <p>A copy of a network that provides banking services with the aim of aiding growing businesses.</p>
                     </div>
                     <div className="buttons">
-                      <a href="https://trybrass.netlify.app/" target={'_blank'}>
+                      <a href="https://trybrass.netlify.app/" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-primary">View Live site</div>
                       </a>
-                      <a href="https://www.github.com/LazyCoder4542/Trybrass" target={'_blank'}>
+                      <a href="https://www.github.com/LazyCoder4542/Trybrass" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-secondary">View Source case</div>
                       </a>
                     </div>
@@ -183,10 +183,10 @@ function App() {
                         <p>A copy of a network that provides crptocurrency infrastructures for africans.</p>
                     </div>
                     <div className="buttons">
-                      <a href="https://helicarrier-page.netlify.app/" target={'_blank'}>
+                      <a href="https://helicarrier-page.netlify.app/" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-primary">View Live site</div>
                       </a>
-                      <a href="https://www.github.com/LazyCoder4542/Helicarrier" target={'_blank'}>
+                      <a href="https://www.github.com/LazyCoder4542/Helicarrier" target={'_blank'} rel={"noreferrer"}>
                         <div className="btn btn-secondary">View Source case</div>
                       </a>
                     </div>
