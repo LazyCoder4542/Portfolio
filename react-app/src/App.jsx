@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 import { ReactComponent as Logo} from "./assets/icons/logo.svg";
 import { ReactComponent as WaveSVG} from "./assets/icons/waves.svg";
@@ -30,35 +30,46 @@ import './App.css';
 import Pointer from './components/pointer';
 function App() {
   const ref = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const options = {
     smooth: true,
     reloadOnContextChange: true,
-    smartphone: {
-      smooth: true
-    },
-    tablet: {
-      smooth: true
-    },
     repeat: "true"
   }
   return (
     <React.Fragment>
       <Pointer />
       <LocomotiveScrollProvider options={options} containerRef={ref}>
-        <div className="App" id='App' data-scroll-container data-scroll-section-inview ref={ref}>
-          <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App">
+        <div className={`App ${isMenuOpen ? "menu_open" : ''}`} id='App' data-scroll-container data-scroll-section-inview ref={ref}>
+          <header id="site-header" data-scroll data-scroll-sticky data-scroll-target="#App" data-scroll-repeat>
             <div className="icon">
               <Logo />
             </div>
-            <div className="wrapper">
+            <motion.div
+            className="wrapper"
+            >
               <div className="box">
-                <div className="hamburger">
+                <div
+                className="hamburger"
+                onClick={()=>{
+                  setIsMenuOpen(!isMenuOpen)
+                }}
+                >
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
               </div>
-            </div>
+              <div className='menu'>
+                <ul>
+                  <li className='active'>Home</li>
+                  <li>Projects</li>
+                  <li>Skills</li>
+                  <li>About</li>
+                  <li>Contact</li>
+                </ul>
+              </div>
+            </motion.div>
           </header>
           <div className="container" id='container'>
             <section id='intro'>
@@ -79,8 +90,12 @@ function App() {
                 > seamless experience</motion.span>
               </h1>
               <div className="buttons">
-                <div className="btn btn-primary">Download Resume</div>
-                <div className="btn btn-secondary">View Projects</div>
+                <a href="assets/Resume.pdf" target={'_blank'}>
+                  <div className="btn btn-primary">View Resume</div>
+                </a>
+                <a href="https://www.github.com/LazyCoder4542?tab=repositories" target={'_blank'}>
+                  <div className="btn btn-secondary">View Projects</div>
+                </a>
               </div>
               <div className="wave"><WaveSVG /></div>
             </section>
@@ -112,8 +127,12 @@ function App() {
                         <p>Case study of documentary website that provides information on outer space.</p>
                     </div>
                     <div className="buttons">
-                      <div className="btn btn-primary">View Case study</div>
-                      <div className="btn btn-secondary">View Source case</div>
+                      <a href="https://space-tourism-by-lazycoder.netlify.app/" target={'_blank'}>
+                        <div className="btn btn-primary">View Case study</div>
+                      </a>
+                      <a href="https://github.com/LazyCoder4542/Space-tourism" target={'_blank'}>
+                        <div className="btn btn-secondary">View Source case</div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -135,8 +154,12 @@ function App() {
                         <p>A copy of a network that provides banking services with the aim of aiding growing businesses.</p>
                     </div>
                     <div className="buttons">
-                      <div className="btn btn-primary">View Live site</div>
-                      <div className="btn btn-secondary">View Source case</div>
+                      <a href="https://trybrass.netlify.app/" target={'_blank'}>
+                        <div className="btn btn-primary">View Live site</div>
+                      </a>
+                      <a href="https://www.github.com/LazyCoder4542/Trybrass" target={'_blank'}>
+                        <div className="btn btn-secondary">View Source case</div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -160,8 +183,12 @@ function App() {
                         <p>A copy of a network that provides crptocurrency infrastructures for africans.</p>
                     </div>
                     <div className="buttons">
-                      <div className="btn btn-primary">View Live site</div>
-                      <div className="btn btn-secondary">View Source case</div>
+                      <a href="https://helicarrier-page.netlify.app/" target={'_blank'}>
+                        <div className="btn btn-primary">View Live site</div>
+                      </a>
+                      <a href="https://www.github.com/LazyCoder4542/Helicarrier" target={'_blank'}>
+                        <div className="btn btn-secondary">View Source case</div>
+                      </a>
                     </div>
                   </div>
                 </div>

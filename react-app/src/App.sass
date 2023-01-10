@@ -32,6 +32,10 @@ h4
     font-size: 1.5rem
 p
     color: custom.$clr-light
+a
+    all: unset
+    cursor: pointer
+    color: inherit
 .btn
     @include custom.button()
     font-family: custom.$ff-button, 'Courier New', Courier, monospace
@@ -105,12 +109,17 @@ p
                 width: auto
 
         .wrapper
+            position: relative
             padding: 1.5rem var(--page-padding-x)
             background-color: custom.$clr-neutral
             border-radius: .5rem 0 0 .5rem
+            &, & *
+                transition: all 500ms
             .box
+                width: 10rem
                 display: flex
                 align-items: center
+                justify-content: center
                 gap: 1rem
                 &::before
                     content: "MENU"
@@ -123,13 +132,38 @@ p
                     flex-direction: column
                     justify-content: space-between
                     span
+                        transition-property: opacity transform
+                        transition-duration: 100ms 500ms
                         display: block
                         height: 3px
                         border-radius: 999px
                         background-color: #D9D9D9
                         &:nth-child(2)
                             width: 80%
-            
+            .menu
+                position: absolute
+                padding: 1rem 0
+                background-color: inherit
+                translate: 0 100%
+                opacity: 0
+                left: 100%
+                bottom: 0
+                width: 100%
+                border-radius: 0 0 0 .5rem
+                ul
+                    width: 100%
+                    flex-direction: column
+                    display: inline-flex
+                    row-gap: 2rem
+                    li
+                        text-align: center
+                        width: 100%
+                        padding: 0.625rem 0
+                        list-style: none
+                        &.active
+                            background-color: #{custom.$clr-white}0D
+                            border-left: 2px solid #D9D9D9
+
     section#intro
         gap: 5rem
         h1
@@ -305,7 +339,29 @@ p
                             align-items: center
                         &>span:nth-child(1)
                             font-family: custom.$ff-button
-
+    &.menu_open
+        #site-header
+            .wrapper
+                border-radius: .5rem 0 0
+                .box
+                    width: 20rem
+                    &::before
+                        width: 0
+                        overflow: hidden
+                    .hamburger
+                        justify-content: center
+                        span
+                            transform-origin: center
+                            &:nth-child(1)
+                                transform: rotate(45deg) translateY(100%)
+                            &:nth-child(2)
+                                transform: translateX(-100%)
+                                opacity: 0
+                            &:nth-child(3)
+                                transform: rotate(-45deg) translateY(-100%)
+                .menu
+                    opacity: 1
+                    left: 0
 
 @keyframes grow
     0%, 10%, 100%
