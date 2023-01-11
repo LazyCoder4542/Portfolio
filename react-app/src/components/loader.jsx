@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {motion} from "framer-motion";
+import React from "react";
+//import {motion} from "framer-motion";
 import styles from "./loader.module.css"
 
 function Loader(props) {
