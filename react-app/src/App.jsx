@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { motion } from "framer-motion";
+import hoverEffect from "hover-effect";
 
 import { ReactComponent as Logo} from "./assets/icons/logo.svg";
 import { ReactComponent as WaveSVG} from "./assets/icons/waves.svg";
@@ -36,6 +37,23 @@ function App() {
     reloadOnContextChange: true,
     repeat: "true"
   }
+  useEffect(()=>{
+    Array.from(document.querySelectorAll('.project')).forEach((e) => {
+      const el = e.querySelector('.image').querySelector('picture')
+      const imgs = Array.from(el.querySelectorAll('img'));
+      new hoverEffect({
+        parent: el,
+        intensity: el.dataset.intensity || undefined,
+        speedIn: el.dataset.speedin || undefined,
+        speedOut: el.dataset.speedout || undefined,
+        easing: el.dataset.easing || undefined,
+        hover: el.dataset.hover || undefined,
+        image1: imgs[0].getAttribute('src'),
+        image2: imgs[1].getAttribute('src'),
+        displacementImage: el.dataset.displacement
+      });
+    });
+  }, [])
   return (
     <React.Fragment>
       <Pointer />
@@ -111,7 +129,10 @@ function App() {
               <div className="projects">
                 <div className="project">
                   <div className="image">
-                    <img src="images/space-tourism.png" alt="Space Tourism" />
+                    <picture data-displacement="images/distortion/1.jpg" data-intensity=".5">
+                      <img hidden src="images/space-tourism.png" alt="Space Tourism" />
+                      <img hidden src="images/space-tourism.png" alt="Space Tourism" />
+                    </picture>
                     <div className="overlay">
                       <span>Space Tourism</span>
                       <span>
@@ -138,7 +159,10 @@ function App() {
                 </div>
                 <div className="project">
                   <div className="image">
-                    <img src="images/trybrass.png" alt="TryBrass" />
+                    <picture data-displacement="images/distortion/2.jpg" data-intensity=".5">
+                      <img hidden src="images/trybrass.png" alt="TryBrass" />
+                      <img hidden src="images/trybrass.png" alt="TryBrass" />
+                    </picture>
                     <div className="overlay">
                       <span>TryBrass</span>
                       <span>
@@ -165,7 +189,10 @@ function App() {
                 </div>
                 <div className="project">
                   <div className="image">
-                    <img src="images/helicarrier.png" alt="Helicarrier" />
+                    <picture data-displacement="images/distortion/2.jpg" data-intensity=".5">
+                      <img hidden src="images/helicarrier.png" alt="Helicarrier" />
+                      <img hidden src="images/helicarrier.png" alt="Helicarrier" />
+                    </picture>
                     <div className="overlay">
                       <span>Helicarrier</span>
                       <span>

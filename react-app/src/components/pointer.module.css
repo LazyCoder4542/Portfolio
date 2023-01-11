@@ -1,1 +1,49 @@
-.pointer{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;position:fixed;width:100px;height:100px;border-radius:50%;translate:-50% -50%;z-index:999;pointer-events:none;left:0;top:0;scale:1;rotate:0deg}.pointer img{width:100%;-webkit-animation:spin 10000ms linear infinite;animation:spin 10000ms linear infinite;height:100%;-o-object-fit:cover;object-fit:cover}@-webkit-keyframes spin{0%{rotate:0deg}100%{rotate:360deg}}@keyframes spin{0%{rotate:0deg}100%{rotate:360deg}}@media screen and (max-width: 1023.9px){.pointer{display:none !important;visibility:hidden !important}}
+.pointer {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  translate: -50% -50%;
+  z-index: 999;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  scale: 1;
+  rotate: 0deg;
+}
+.pointer img {
+  width: 100%;
+  -webkit-animation: spin 10000ms linear infinite;
+          animation: spin 10000ms linear infinite;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+@media screen and (max-width: 1023.9px) {
+  .pointer {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

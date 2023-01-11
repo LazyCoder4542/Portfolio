@@ -81,6 +81,7 @@ a
                 padding-block: 5rem
         .dots
             position: absolute
+            pointer-events: none
             background-size: 100% auto
             width: 100%
             top: 5px
@@ -191,6 +192,7 @@ a
             position: absolute
             width: 35vw
             top: 10rem
+            pointer-events: none
             right: 0
             &::after
                 content: ""
@@ -210,25 +212,32 @@ a
                 gap: 3.5rem
                 align-items: center
                 &:nth-child(1)>.image>.overlay
-                    background-color: #D1317F99
+                    background-color: #D1317F
                 &:nth-child(2)>.image>.overlay
-                    background-color: #9055A2BB
+                    background-color: #9055A2
                 &:nth-child(3)>.image>.overlay
-                    background-color: #426B69CC
+                    background-color: #426B69
                 .image
-                    overflow: clip
-                    -webkit-overflow: clip
                     flex-basis: 66.7%
+                    position: relative
+                    overflow-clip-margin: content-box
+                    display: inline-flex
+                    -webkit-overflow: clip
+                    overflow: clip
+                    padding: 1.5rem
                     background-color: custom.$clr-neutral
                     border: 0.381452px solid #CFCFCF
                     border-radius: 3rem
-                    padding: 1.5rem
-                    display: inline-flex
-                    position: relative
-                    overflow-clip-margin: content-box
+                    picture
+                        width: 100%
+                        overflow: hidden
+                        height: 400px
+                        border-radius: 1.5rem
+                    canvas
+                        width: 100% !important
+                        //height: 500px !important
                     img
                         width: 100%
-                        border-radius: 1.5rem
                     .overlay
                         position: absolute
                         pointer-events: none
