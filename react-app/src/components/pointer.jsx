@@ -55,7 +55,7 @@ class Pointer extends Component {
           }
         }}
         animate="default"
-        transition={{type: "spring", duration: 0}}
+        transition={{type: "spring"}}
         >
           <img src={pointer} alt="pointer" />
         </motion.div>

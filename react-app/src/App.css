@@ -312,6 +312,9 @@ a {
   background-color: #1D1E29;
   border: 0.381452px solid #CFCFCF;
   border-radius: 3rem;
+  /*&:hover
+  *  .overlay
+  *      opacity: 1    */
 }
 .App section#projects .projects .project .image picture {
   width: 100%;
@@ -358,9 +361,6 @@ a {
   font-weight: 300;
   font-size: 1.5rem;
   font-family: "Tw Cen MT Condensed Font", "Courier New", Courier, monospace !important;
-}
-.App section#projects .projects .project .image:hover .overlay {
-  opacity: 1;
 }
 .App section#projects .projects .project .caption {
   flex-basis: 33.3%;
@@ -543,9 +543,6 @@ a {
 @media screen and (min-width: 1024px) {
   :root {
     font-size: 90%;
-  }
-  .App {
-    cursor: none;
   }
   .App section#skills .skills-container div.skill span {
     -webkit-animation-name: grow;

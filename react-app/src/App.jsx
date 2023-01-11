@@ -29,7 +29,9 @@ import dots from "./assets/icons/dots.svg";
 import './App.css';
 
 import Pointer from './components/pointer';
+import Loader from './components/loader';
 function App() {
+  const [isPageLoaded, setIsPageLoaded] = useState(false)
   const ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const options = {
@@ -53,9 +55,14 @@ function App() {
         displacementImage: el.dataset.displacement
       });
     });
+    var imagesLoaded = require('imagesloaded');
+    imagesLoaded( '.App', function() {
+      setIsPageLoaded(true)
+    });
   }, [])
   return (
     <React.Fragment>
+      <Loader hidden={isPageLoaded}/>
       <Pointer />
       <LocomotiveScrollProvider options={options} containerRef={ref}>
         <div className={`App ${isMenuOpen ? "menu_open" : ''}`} id='App' data-scroll-container data-scroll-section-inview ref={ref}>
@@ -131,7 +138,7 @@ function App() {
                   <div className="image">
                     <picture data-displacement="images/distortion/1.jpg" data-intensity=".5">
                       <img hidden src="images/space-tourism.png" alt="Space Tourism" />
-                      <img hidden src="images/space-tourism.png" alt="Space Tourism" />
+                      <img hidden src="images/space-tourism2.png" alt="Space Tourism" />
                     </picture>
                     <div className="overlay">
                       <span>Space Tourism</span>
@@ -161,7 +168,7 @@ function App() {
                   <div className="image">
                     <picture data-displacement="images/distortion/2.jpg" data-intensity=".5">
                       <img hidden src="images/trybrass.png" alt="TryBrass" />
-                      <img hidden src="images/trybrass.png" alt="TryBrass" />
+                      <img hidden src="images/trybrass2.png" alt="TryBrass" />
                     </picture>
                     <div className="overlay">
                       <span>TryBrass</span>
@@ -191,7 +198,7 @@ function App() {
                   <div className="image">
                     <picture data-displacement="images/distortion/2.jpg" data-intensity=".5">
                       <img hidden src="images/helicarrier.png" alt="Helicarrier" />
-                      <img hidden src="images/helicarrier.png" alt="Helicarrier" />
+                      <img hidden src="images/helicarrier2.png" alt="Helicarrier" />
                     </picture>
                     <div className="overlay">
                       <span>Helicarrier</span>
