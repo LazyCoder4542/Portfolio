@@ -32,7 +32,6 @@ import Pointer from './components/pointer';
 import Loader from './components/loader';
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false)
-  const [progress, setProgress] = useState(0)
   const ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const options = {
@@ -63,19 +62,14 @@ function App() {
         setIsPageLoaded(true)
       }, 2000);
     });
-    console.log(imgLoad.images.length);
     imgLoad.on('progress', function( instance, image ) {
-      let id = imgLoad.images.indexOf(image) + 1
-      let current = Math.ceil((id / imgLoad.images.length) * 100)
-      console.log(progress);
-      setProgress(current)
       var result = image.isLoaded ? 'loaded' : 'broken';
       console.log( 'image is ' + result + ' for ' + image.img.src );
     });
   })
   return (
     <React.Fragment>
-      <Loader hidden={isPageLoaded} progress={progress}/>
+      <Loader hidden={isPageLoaded}/>
       <Pointer />
       <LocomotiveScrollProvider options={options} containerRef={ref}>
         <div className={`App ${isMenuOpen ? "menu_open" : ''}`} id='App' data-scroll-container data-scroll-section-inview ref={ref}>

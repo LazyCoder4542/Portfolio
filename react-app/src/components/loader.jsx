@@ -50,7 +50,7 @@ function Loader(props) {
                         })}
                     </motion.div>
                 </div>
-                <p>{props.progress}%</p>
+                <p>Loading</p>
             </div>
         </div>
      );
