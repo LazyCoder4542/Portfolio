@@ -60,7 +60,7 @@ function App() {
       console.log("loaded");
       setTimeout(() => {
         setIsPageLoaded(true)
-      }, 2000);
+      }, 5000);
     });
     imgLoad.on('progress', function( instance, image ) {
       var result = image.isLoaded ? 'loaded' : 'broken';

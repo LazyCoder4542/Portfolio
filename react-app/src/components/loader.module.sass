@@ -1,13 +1,14 @@
 @use '../_custom.sass' as custom
 .loader
     z-index: 999999
-    color: red
+    color: #D1317F
     width: 100vw
     position: fixed
     top: 0
     left: 0
     height: 100vh
-    background-color: #333 //#89db89 //cc
+    background-color: custom.$clr-primary //#89db89 //cc
+    background: linear-gradient(135deg, rgba(144,85,162,1) 0%, rgba(16,16,26,1) 12%, rgba(16,16,26,1) 88%, rgba(66,107,105,1) 100%)
     display: flex
     place-items: center
     place-content: center
@@ -38,7 +39,7 @@
                         display: block
                         height: 15px
                         width: 5px
-                        background: red
+                        background: #D1317F
                         border-radius: 50%
                         transform: translateY(-20px)
                         animation: displace 5s 3s alternate infinite

@@ -1,12 +1,13 @@
 .loader {
   z-index: 999999;
-  color: red;
+  color: #D1317F;
   width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: #333;
+  background-color: #10101A;
+  background: linear-gradient(135deg, rgb(144, 85, 162) 0%, rgb(16, 16, 26) 12%, rgb(16, 16, 26) 88%, rgb(66, 107, 105) 100%);
   display: flex;
   place-items: center;
   place-content: center;
@@ -40,7 +41,7 @@
   display: block;
   height: 15px;
   width: 5px;
-  background: red;
+  background: #D1317F;
   border-radius: 50%;
   transform: translateY(-20px);
   -webkit-animation: displace 5s 3s alternate infinite;
