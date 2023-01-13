@@ -32,6 +32,7 @@ import Pointer from './components/pointer';
 import Loader from './components/loader';
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false)
+  const [progress, setProgress] = useState(0)
   const ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const options = {
@@ -56,13 +57,25 @@ function App() {
       });
     });
     var imagesLoaded = require('imagesloaded');
-    imagesLoaded( '.App', function() {
-      setIsPageLoaded(true)
+    var imgLoad = imagesLoaded( '.App', function() {
+      console.log("loaded");
+      setTimeout(() => {
+        setIsPageLoaded(true)
+      }, 2000);
     });
-  }, [])
+    console.log(imgLoad.images.length);
+    imgLoad.on('progress', function( instance, image ) {
+      let id = imgLoad.images.indexOf(image) + 1
+      let current = Math.ceil((id / imgLoad.images.length) * 100)
+      console.log(progress);
+      setProgress(current)
+      var result = image.isLoaded ? 'loaded' : 'broken';
+      console.log( 'image is ' + result + ' for ' + image.img.src );
+    });
+  })
   return (
     <React.Fragment>
-      <Loader hidden={isPageLoaded}/>
+      <Loader hidden={isPageLoaded} progress={progress}/>
       <Pointer />
       <LocomotiveScrollProvider options={options} containerRef={ref}>
         <div className={`App ${isMenuOpen ? "menu_open" : ''}`} id='App' data-scroll-container data-scroll-section-inview ref={ref}>
@@ -97,7 +110,7 @@ function App() {
             </motion.div>
           </header>
           <div className="container" id='container'>
-            <section id='intro'>
+            <section id='intro' data-scroll data-scroll-position="top" data-scroll-id="home">
               <h1 className="tagline">
                 Building products with great aesthetics and
                 <motion.span
@@ -124,7 +137,7 @@ function App() {
               </div>
               <div className="wave"><WaveSVG /></div>
             </section>
-            <section id='projects'>
+            <section id='projects' data-scroll data-scroll-position="top">
               <header>
                 <h2>
                   <span>Projects</span>
@@ -235,7 +248,7 @@ function App() {
             }}
             >
             </section>
-            <section id='skills'>
+            <section id='skills' data-scroll data-scroll-position="top">
               <header>
                 <h2>
                   <span>Skills</span>
@@ -281,7 +294,7 @@ function App() {
                 </div>
               </div>
             </section>
-            <section id='about'>
+            <section id='about' data-scroll data-scroll-position="top">
               <header>
                 <h2>
                   <span>About</span>
@@ -295,7 +308,7 @@ function App() {
                 <p>I am currently based in Lagos, Nigeria.</p>
               </div>
             </section>
-            <section id='contact'>
+            <section id='contact' data-scroll data-scroll-position="top">
               <header>
                 <h2>
                   <span>Contact</span>

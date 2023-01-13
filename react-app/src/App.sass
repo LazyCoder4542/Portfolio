@@ -97,7 +97,9 @@ a
         position: relative
         backdrop-filter: blur(10px)
         //background-image: linear-gradient(to bottom, #{custom.$clr-primary}BB 95%, transparent)
-        background-color: #{custom.$clr-primary}88
+        //background-color: #{custom.$clr-primary}88
+        background-image: radial-gradient(#bbbbbb11 1px, #{custom.$clr-primary}88 1px)
+        background-size: 4px 4px
         padding: 1rem 0 1rem var(--page-padding-x)
         display: flex
         justify-content: space-between
@@ -217,6 +219,8 @@ a
                     background-color: #9055A2
                 &:nth-child(3)>.image>.overlay
                     background-color: #426B69
+                &:nth-child(even)
+                    flex-direction: row-reverse
                 .image
                     flex-basis: 66.7%
                     position: relative

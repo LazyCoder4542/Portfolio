@@ -160,7 +160,8 @@ a {
   position: relative;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  background-color: #10101A88;
+  background-image: radial-gradient(rgba(187, 187, 187, 0.0666666667) 1px, #10101A88 1px);
+  background-size: 4px 4px;
   padding: 1rem 0 1rem var(--page-padding-x);
   display: flex;
   justify-content: space-between;
@@ -300,6 +301,9 @@ a {
 }
 .App section#projects .projects .project:nth-child(3) > .image > .overlay {
   background-color: #426B69;
+}
+.App section#projects .projects .project:nth-child(even) {
+  flex-direction: row-reverse;
 }
 .App section#projects .projects .project .image {
   flex-basis: 66.7%;

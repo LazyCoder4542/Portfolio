@@ -1,3 +1,4 @@
+@use '../_custom.sass' as custom
 .loader
     z-index: 999999
     color: red
@@ -6,9 +7,66 @@
     top: 0
     left: 0
     height: 100vh
-    background-color: #89db89cc
+    background-color: #333 //#89db89 //cc
     display: flex
     place-items: center
     place-content: center
     &.loaded
-        opacity: 0
+        display: none
+    .container
+        position: relative
+        .spinner
+            padding: 50px
+            //border: dashed
+            animation: rotate 5s 3s alternate infinite
+            .round
+                width: 15px
+                aspect-ratio: 1/1
+                border-radius:  50%
+                background: custom.$clr-light
+                position: relative
+                display: flex
+                place-content: center
+                place-items: center
+                .ellipse
+                    position: absolute
+                    //@for $i from 1 through 8
+                        //&:nth-child(#{$i})
+                            //rotate: calc((#{$i} - 1) * 45deg )*/
+                    &::after
+                        content: ""
+                        display: block
+                        height: 15px
+                        width: 5px
+                        background: red
+                        border-radius: 50%
+                        transform: translateY(-20px)
+                        animation: displace 5s 3s alternate infinite
+        p
+            text-align: center
+            position: absolute
+            top: 100%
+            left: 50%
+            transform: translateX(-50%)
+@keyframes rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(1080deg)
+@keyframes displace
+    0%
+        transform: translateY(-20px)
+        width: 5px
+        height: 15px
+
+    10%
+        transform: translateY(-20px)
+        width: 5px
+    60%
+        transform: translateY(-40px)
+        width: 10px
+        height: 10px
+    100%
+        transform: translateY(-45px)
+        width: 10px
+        height: 10px
