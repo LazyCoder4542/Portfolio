@@ -67,14 +67,14 @@ function App() {
       }, 10000);
     });
     imgLoad.on('progress', function( instance, image ) {
-      var result = image.isLoaded ? 'loaded' : 'broken';
+      //var result = image.isLoaded ? 'loaded' : 'broken';
       //console.log( 'image is ' + result + ' for ' + image.img.src );
     });
     
   }, [])
   const scrollTo = (e) => {
     if (e !== null) {
-      if (e=='home') {
+      if (e ==='home') {
         scroll.scrollTo('top')
       }
     }
