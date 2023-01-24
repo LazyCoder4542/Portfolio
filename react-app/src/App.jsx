@@ -60,13 +60,13 @@ function App() {
       console.log("loaded");
       setTimeout(() => {
         setIsPageLoaded(true)
-      }, 5000);
+      }, 10000);
     });
     imgLoad.on('progress', function( instance, image ) {
       var result = image.isLoaded ? 'loaded' : 'broken';
       console.log( 'image is ' + result + ' for ' + image.img.src );
     });
-  })
+  }, [])
   return (
     <React.Fragment>
       <Loader hidden={isPageLoaded}/>

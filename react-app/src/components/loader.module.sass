@@ -1,4 +1,12 @@
 @use '../_custom.sass' as custom
+@property --a
+  syntax: '<percentage>'
+  inherits: false
+  initial-value: 0%
+@property --b
+  syntax: '<percentage>'
+  inherits: false
+  initial-value: 50%
 .loader
     z-index: 999999
     color: #D1317F
@@ -8,7 +16,8 @@
     left: 0
     height: 100vh
     background-color: custom.$clr-primary //#89db89 //cc
-    background: linear-gradient(135deg, rgba(144,85,162,1) 0%, rgba(16,16,26,1) 12%, rgba(16,16,26,1) 88%, rgba(66,107,105,1) 100%)
+    animation: background 3s forwards
+    background-image: radial-gradient(circle, rgba(16,16,26,1) 0%, rgba(16,16,26,1) var(--a), rgba(66,107,105,0.8) var(--b), rgba(144,85,162,0.8) 100%)
     display: flex
     place-items: center
     place-content: center
@@ -71,3 +80,13 @@
         transform: translateY(-45px)
         width: 10px
         height: 10px
+@keyframes background
+    0%
+        --a: 0%
+        --b: 50%
+    80%
+        --a: 90%
+        --b: 100%
+    100%
+        --a: 80%
+        --b: 90%
