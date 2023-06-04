@@ -1,7 +1,6 @@
 .pointer {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   position: fixed;
   width: 100px;
@@ -17,20 +16,10 @@
 }
 .pointer img {
   width: 100%;
-  -webkit-animation: spin 10000ms linear infinite;
-          animation: spin 10000ms linear infinite;
+  animation: spin 10000ms linear infinite;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
-  }
 }
 
 @keyframes spin {

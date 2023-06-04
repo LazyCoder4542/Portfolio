@@ -33,16 +33,10 @@ import Pointer from './components/pointer';
 import Loader from './components/loader';
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false)
+  const [scroll, setScroll] = useState(null)
   const [currentSection, setCurrentSection] = useState(null)
   const ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true
-    });
-    scroll.on('call', (arg) => {
-      console.log(arg);
-    })
   useEffect(()=>{
     Array.from(document.querySelectorAll('.project')).forEach((e) => {
       const el = e.querySelector('.image').querySelector('picture')
@@ -70,18 +64,39 @@ function App() {
       //var result = image.isLoaded ? 'loaded' : 'broken';
       //console.log( 'image is ' + result + ' for ' + image.img.src );
     });
+    // setScroll(new LocomotiveScroll())
+    setScroll(new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        reloadOnContextChange: true
+      }))
+    /*scroll.on('call', (arg) => {
+      console.log(arg);
+    })*/
     
   }, [])
-  const scrollTo = (e) => {
-    if (e !== null) {
-      if (e ==='home') {
+  useEffect((currentSection) => {
+    if (currentSection !== null) {
+      if (currentSection ==='home') {
         scroll.scrollTo('top')
       }
     }
-  }
+  }, [currentSection, scroll])
+  useEffect(()=>{
+    if (scroll) {
+      if (isMenuOpen) {
+        console.log("Opened");
+        console.log(scroll)
+      }
+      else {
+        console.log("Closed");
+      }
+    }
+  }, [isMenuOpen, scroll])
+  console.log(scroll)
   return (
     <React.Fragment>
-      {scrollTo(currentSection)}
+      {/*scrollTo(currentSection)*/}
       <Loader hidden={isPageLoaded}/>
       <Pointer />
       <div className={`App ${isMenuOpen ? "menu_open" : ''}`} id='App' data-scroll-container data-scroll-section-inview ref={ref}>
@@ -147,7 +162,6 @@ function App() {
             <div className="wave"><WaveSVG /></div>
           </section>
           <section id='projects' data-scroll data-scroll-repeat
-          data-scroll-call = 'hello'
           data-scroll-position="top"
           >
             <header>
@@ -262,7 +276,6 @@ function App() {
           </section>
           <section id='skills' data-scroll data-scroll-position="top"
           data-scroll-repeat
-          data-scroll-call = 'skills'
           >
             <header>
               <h2>
