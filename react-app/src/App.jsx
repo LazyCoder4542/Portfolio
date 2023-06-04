@@ -90,17 +90,6 @@ function App() {
   //     }
   //   }
   // }, [currentSection, isPageLoaded])
-  useEffect(()=>{
-    if (scroll) {
-      scroll.update()
-      if (isMenuOpen) {
-        console.log("Opened");
-      }
-      else {
-        console.log("Closed");
-      }
-    }
-  }, [isMenuOpen, scroll])
   return (
     <React.Fragment>
       {/*scrollTo(currentSection)*/}
