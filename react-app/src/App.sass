@@ -14,7 +14,7 @@ $count: 10
 body
     overflow-x: hidden
     background-color: custom.$clr-primary
-    min-height: 200vh
+    min-height: 100vh
     font-family: custom.$ff-body, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     color: custom.$clr-white
     font-size: 1.5rem
@@ -59,8 +59,8 @@ a
             flex-direction: column
             &:not(section#intro)
                 row-gap: 4.875rem
-                padding-top: 3rem
-                margin-bottom: 10rem
+                padding-top: 9rem
+                margin-bottom: 2rem
                 
             p
                 font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
@@ -163,9 +163,11 @@ a
                         width: 100%
                         padding: 0.625rem 0
                         list-style: none
+                        cursor: pointer
                         &.active
                             background-color: #{custom.$clr-white}0D
                             border-left: 2px solid #D9D9D9
+                            pointer-events: none
 
     section#intro
         gap: 5rem
@@ -394,7 +396,7 @@ a
                 .menu
                     top: 0
                     display: flex
-                    height: 100vh
+                    //height: 100vh
                     translate: none
                     left: 100%
                     opacity: 0
@@ -438,7 +440,7 @@ a
                         font-size: 1.75rem
                         justify-content: space-between
         &.menu_open
-            height: 100vh
+            height: 50vh
             overflow: hidden
             #site-header
                 .wrapper

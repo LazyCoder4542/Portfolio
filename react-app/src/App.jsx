@@ -33,7 +33,7 @@ import Pointer from './components/pointer';
 import Loader from './components/loader';
 function App() {
   const [isPageLoaded, setIsPageLoaded] = useState(false)
-  const [scroll, setScroll] = useState(null)
+  const [scroll, setScroll] = useState()
   const [currentSection, setCurrentSection] = useState(null)
   const ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -64,36 +64,43 @@ function App() {
       //var result = image.isLoaded ? 'loaded' : 'broken';
       //console.log( 'image is ' + result + ' for ' + image.img.src );
     });
-    // setScroll(new LocomotiveScroll())
-    setScroll(new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        reloadOnContextChange: true
-      }))
-    /*scroll.on('call', (arg) => {
-      console.log(arg);
-    })*/
-    
+    console.log("re-init")
+    setScroll(new LocomotiveScroll({el: document.querySelector('[data-scroll-container]'), smooth: true}))
   }, [])
-  useEffect((currentSection) => {
-    if (currentSection !== null) {
-      if (currentSection ==='home') {
-        scroll.scrollTo('top')
-      }
+  useEffect(()=>{
+    console.log("scroll set")
+    if (isPageLoaded) {
+      scroll.scrollTo('top')
+      scroll.on('scroll', (args) => {
+        // Get all current elements : args.currentElements
+        let sections = ['home', 'projects', 'skills', 'about', 'contact']
+        sections.forEach((itm)=>{
+          if(typeof args.currentElements[itm] === 'object') {
+            // args.currentElements[itm];
+            setCurrentSection(itm)
+          }
+        })
+    });
     }
-  }, [currentSection, scroll])
+  }, [scroll, isPageLoaded])
+  // useEffect((currentSection) => {
+  //   if (currentSection !== null) {
+  //     if (currentSection ==='home') {
+  //       scroll.scrollTo('top')
+  //     }
+  //   }
+  // }, [currentSection, isPageLoaded])
   useEffect(()=>{
     if (scroll) {
+      scroll.update()
       if (isMenuOpen) {
         console.log("Opened");
-        console.log(scroll)
       }
       else {
         console.log("Closed");
       }
     }
   }, [isMenuOpen, scroll])
-  console.log(scroll)
   return (
     <React.Fragment>
       {/*scrollTo(currentSection)*/}
@@ -124,7 +131,18 @@ function App() {
                 {
                   ['home', 'projects', 'skills', 'about', 'contact'].map((itm, key) => 
                   <li key={key}
-                  onClick = { ()=> {setCurrentSection(itm)}}
+                  className={itm === currentSection ? "active" : ""}
+                  onClick = { ()=> {
+                    setIsMenuOpen(false)
+                    setTimeout(() => {
+                      if (itm === "home") {
+                        scroll.scrollTo("top")
+                      }
+                      else {
+                        scroll.scrollTo(document.querySelector(`[data-scroll-id="${itm}"]`))
+                      }
+                    }, 100);
+                  }}
                   >
                     {itm.charAt(0).toUpperCase() + itm.slice(1)}
                   </li>)
@@ -134,7 +152,7 @@ function App() {
           </motion.div>
         </header>
         <div className="container" id='container'>
-          <section id='intro' data-scroll data-scroll-position="top" data-scroll-id="home">
+          <section id='intro' data-scroll data-scroll-position="top" data-scroll-id="home" data-scroll-repeat data-scroll-offset="0% 50%">
             <h1 className="tagline">
               Building products with great aesthetics and
               <motion.span
@@ -161,9 +179,7 @@ function App() {
             </div>
             <div className="wave"><WaveSVG /></div>
           </section>
-          <section id='projects' data-scroll data-scroll-repeat
-          data-scroll-position="top"
-          >
+          <section id='projects' data-scroll data-scroll-repeat data-scroll-position="top" data-scroll-id="projects">
             <header>
               <h2>
                 <span>Projects</span>
@@ -274,9 +290,7 @@ function App() {
           }}
           >
           </section>
-          <section id='skills' data-scroll data-scroll-position="top"
-          data-scroll-repeat
-          >
+          <section id='skills' data-scroll data-scroll-position="top" data-scroll-id="skills" data-scroll-repeat>
             <header>
               <h2>
                 <span>Skills</span>
@@ -322,7 +336,7 @@ function App() {
               </div>
             </div>
           </section>
-          <section id='about' data-scroll data-scroll-position="top">
+          <section id='about' data-scroll data-scroll-position="top" data-scroll-id="about">
             <header>
               <h2>
                 <span>About</span>
@@ -336,7 +350,7 @@ function App() {
               <p>I am currently based in Lagos, Nigeria.</p>
             </div>
           </section>
-          <section id='contact' data-scroll data-scroll-position="top">
+          <section id='contact' data-scroll data-scroll-position="top" data-scroll-id="contact">
             <header>
               <h2>
                 <span>Contact</span>
