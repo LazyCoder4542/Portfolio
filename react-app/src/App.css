@@ -246,21 +246,28 @@ a {
 .App section#intro {
   gap: 5rem;
 }
-.App section#intro h1 span {
-  color: #EC368D;
+.App section#intro h1 .text-container {
+  width: 40rem;
   position: relative;
-  text-shadow: 0 0 30px #EC368D99;
-  display: flex;
+  overflow: hidden;
 }
-.App section#intro h1 span::after {
-  display: block;
+.App section#intro h1 .text-container video {
+  width: 100%;
+  height: auto;
+}
+.App section#intro h1 .text-container svg {
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
   position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  opacity: 0.2;
-  filter: blur(20px);
-  content: attr(data-content);
+}
+.App section#intro h1 .text-container span {
+  display: none;
+  visibility: hidden;
+  color: rgba(255, 255, 255, 0);
+  text-transform: lowercase;
+  top: 1.5rem;
+  left: 1.5rem;
 }
 .App section#intro .buttons {
   display: inline-flex;
@@ -478,14 +485,14 @@ a {
   gap: 1.5rem;
   display: inline-flex;
 }
-.App section#contact .wrapper .socials div > span {
+.App section#contact .wrapper .socials div a > span {
   gap: 0.5rem;
 }
-.App section#contact .wrapper .socials div > span, .App section#contact .wrapper .socials div > span > span:nth-child(2) {
+.App section#contact .wrapper .socials div a > span, .App section#contact .wrapper .socials div a > span > span:nth-child(2) {
   display: inline-flex;
   align-items: center;
 }
-.App section#contact .wrapper .socials div > span > span:nth-child(1) {
+.App section#contact .wrapper .socials div a > span > span:nth-child(1) {
   font-family: "Tw Cen MT Condensed Font";
 }
 .App.menu_open #site-header .wrapper {

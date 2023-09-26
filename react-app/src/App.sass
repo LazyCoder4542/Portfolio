@@ -172,20 +172,40 @@ a
     section#intro
         gap: 5rem
         h1
-            span
-                color: custom.$clr-primary2
+            .text-container
+                width: 40rem
                 position: relative
-                text-shadow: 0 0 30px #{custom.$clr-primary2}99
-                display: flex
-                &::after
-                    display: block
+                overflow: hidden
+                video
+                    width: 100%
+                    height: auto
+                svg
+                    top: -1px
+                    left: -1px
+                    width: calc(100% + 2px)
                     position: absolute
-                    top: 0
-                    left: 0
-                    color: white
-                    opacity: .2
-                    filter: blur(20px)
-                    content: attr(data-content)
+                span
+                    display: none
+                    visibility: hidden
+                    color: rgba(255, 255, 255, 0)
+                    text-transform: lowercase
+                    // font-family: $secondary-font
+                    top: 1.5rem
+                    left: 1.5rem
+            // span
+            //     color: custom.$clr-primary2
+            //     position: relative
+            //     text-shadow: 0 0 30px #{custom.$clr-primary2}99
+            //     display: flex
+            //     &::after
+            //         display: block
+            //         position: absolute
+            //         top: 0
+            //         left: 0
+            //         color: white
+            //         opacity: .2
+            //         filter: blur(20px)
+            //         content: attr(data-content)
         .buttons
             display: inline-flex
             gap: 3.5rem
@@ -351,7 +371,7 @@ a
                 div
                     gap: 1.5rem
                     display: inline-flex
-                    &>span
+                    & a > span
                         gap: .5rem
                         &, &>span:nth-child(2)
                             display: inline-flex
