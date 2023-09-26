@@ -457,6 +457,26 @@ a {
 .App section#skills .skills-container div.skill:nth-child(11) span {
   animation-delay: calc(var(--timer) / 10 * 9);
 }
+.App section#about .wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  line-height: 3rem;
+}
+.App section#about .wrapper .profile {
+  --angle: 0deg;
+  border: 5px solid;
+  border-image-slice: 1;
+  animation: 5s rotate linear infinite;
+  -o-border-image: linear-gradient(var(--angle), #743ad5, #d53a9d, #426B69, #D09C15) 1;
+     border-image: linear-gradient(var(--angle), #743ad5, #d53a9d, #426B69, #D09C15) 1;
+  display: inline-flex;
+}
+.App section#about .wrapper .profile img {
+  width: 20rem;
+  vertical-align: bottom;
+  float: left;
+}
 .App section#contact {
   margin-bottom: 0 !important;
 }
@@ -621,5 +641,15 @@ a {
   :root {
     --page-padding-x: 6.25rem;
     font-size: 100%;
+  }
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
   }
 }

@@ -374,8 +374,13 @@ function App() {
               </h2>
             </header>
             <div className="wrapper">
-              <p>My name is Adeola Fadare, and I’m a Front-end Developer. I love creating amazing projects with seamless expeience. I also enjoy working with people to create amazing products. I am currently freelancing at Byte tech services.</p>
-              <p>I am currently based in Lagos, Nigeria.</p>
+              <div className="profile">
+                <img src="/images/my_image.png" alt="Adeola Fadare" />
+              </div>
+              <div>
+                <p>My name is Adeola Fadare, and I’m a Front-end Developer. I love creating amazing projects with seamless expeience. I also enjoy working with people to create amazing products. I am currently freelancing at Byte tech services.</p>
+                <p>I am currently based in Lagos, Nigeria.</p>
+              </div>
             </div>
           </section>
           <section id='contact' data-scroll data-scroll-position="top" data-scroll-id="contact">

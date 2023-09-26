@@ -350,6 +350,23 @@ a
                         &:nth-child(#{$i})
                             span
                                 animation-delay: calc((var(--timer)/$count) * ($i - 1))
+    section#about
+        .wrapper
+            display: flex
+            align-items: flex-end
+            gap: 2rem
+            line-height: 3rem
+            .profile
+                --angle: 0deg
+                border: 5px solid
+                border-image-slice: 1
+                animation: 5s rotate linear infinite
+                border-image: linear-gradient(var(--angle), #743ad5, #d53a9d, #426B69, #D09C15) 1
+                display: inline-flex
+                img
+                    width: 20rem
+                    vertical-align: bottom
+                    float: left
     section#contact
         margin-bottom: 0 !important
         p>span
@@ -493,3 +510,12 @@ a
     :root
         --page-padding-x: 6.25rem 
         font-size: 100%
+
+@property --angle
+  syntax: '<angle>'
+  initial-value: 0deg
+  inherits: false
+
+@keyframes rotate
+  to
+    --angle: 360deg
