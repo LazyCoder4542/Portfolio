@@ -567,6 +567,7 @@ a {
     padding-bottom: 3rem;
   }
   .App .container > section:not(section#intro) {
+    text-align: center;
     gap: 1rem;
     padding-top: 2rem;
     margin-bottom: 5rem;
@@ -598,6 +599,10 @@ a {
     background: #1D1E29;
     border-radius: 100rem;
     box-shadow: 0px 0px 1px #F5F5F5;
+  }
+  .App section#about .wrapper {
+    flex-direction: column;
+    align-items: center;
   }
   .App section#contact .wrapper .socials span > svg {
     width: 2rem;
