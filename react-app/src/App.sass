@@ -172,20 +172,40 @@ a
     section#intro
         gap: 5rem
         h1
-            span
-                color: custom.$clr-primary2
+            .text-container
+                width: 40rem
                 position: relative
-                text-shadow: 0 0 30px #{custom.$clr-primary2}99
-                display: flex
-                &::after
-                    display: block
+                overflow: hidden
+                video
+                    width: 100%
+                    height: auto
+                svg
+                    top: -1px
+                    left: -1px
+                    width: calc(100% + 2px)
                     position: absolute
-                    top: 0
-                    left: 0
-                    color: white
-                    opacity: .2
-                    filter: blur(20px)
-                    content: attr(data-content)
+                span
+                    display: none
+                    visibility: hidden
+                    color: rgba(255, 255, 255, 0)
+                    text-transform: lowercase
+                    // font-family: $secondary-font
+                    top: 1.5rem
+                    left: 1.5rem
+            // span
+            //     color: custom.$clr-primary2
+            //     position: relative
+            //     text-shadow: 0 0 30px #{custom.$clr-primary2}99
+            //     display: flex
+            //     &::after
+            //         display: block
+            //         position: absolute
+            //         top: 0
+            //         left: 0
+            //         color: white
+            //         opacity: .2
+            //         filter: blur(20px)
+            //         content: attr(data-content)
         .buttons
             display: inline-flex
             gap: 3.5rem
@@ -330,6 +350,23 @@ a
                         &:nth-child(#{$i})
                             span
                                 animation-delay: calc((var(--timer)/$count) * ($i - 1))
+    section#about
+        .wrapper
+            display: flex
+            align-items: flex-end
+            gap: 2rem
+            line-height: 3rem
+            .profile
+                --angle: 0deg
+                border: 5px solid
+                border-image-slice: 1
+                animation: 5s rotate linear infinite
+                border-image: linear-gradient(var(--angle), #743ad5, #d53a9d, #426B69, #D09C15) 1
+                display: inline-flex
+                img
+                    width: 20rem
+                    vertical-align: bottom
+                    float: left
     section#contact
         margin-bottom: 0 !important
         p>span
@@ -351,7 +388,7 @@ a
                 div
                     gap: 1.5rem
                     display: inline-flex
-                    &>span
+                    & a > span
                         gap: .5rem
                         &, &>span:nth-child(2)
                             display: inline-flex
@@ -405,6 +442,7 @@ a
             padding-bottom: 3rem
             &>section
                 &:not(section#intro)
+                    text-align: center
                     gap: 1rem
                     padding-top: 2rem
                     margin-bottom: 5rem
@@ -431,6 +469,10 @@ a
                     background: custom.$clr-neutral
                     border-radius: 100rem
                     box-shadow: 0px 0px 1px custom.$clr-light
+        section#about
+            .wrapper
+                flex-direction: column
+                align-items: center
         section#contact
             .wrapper
                 .socials
@@ -473,3 +515,12 @@ a
     :root
         --page-padding-x: 6.25rem 
         font-size: 100%
+
+@property --angle
+  syntax: '<angle>'
+  initial-value: 0deg
+  inherits: false
+
+@keyframes rotate
+  to
+    --angle: 360deg
